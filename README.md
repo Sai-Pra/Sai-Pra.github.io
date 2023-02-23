@@ -1,5 +1,5 @@
 # 👋 Hello developer!
-This is one of the many templates available from W3schools. Check our [tutorials for frontend development](https://www.w3schools.com/where_to_start.asp) to learn the basics of [HTML](https://www.w3schools.com/html/default.asp) and [CSS](https://www.w3schools.com/css/default.asp). 🦄
+This is one of the many templates available from W3schools. Check our [tutorials for frontend development](https://www.w3schools.com/where_to_start.asp) to learn the basics of [HTML](https://www.w3schools.com/html/default.asp) and [CSS](https://www.w3schools.com/css/default.asp). 
 
 
 ## 🏗 What's next?
