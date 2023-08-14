@@ -115,18 +115,18 @@
         opacity: 1;
         transform: none;
     }
-    .goal-project-container {
+    /* .goal-project-container {
         display: inline-block;
         flex-wrap: nowrap;
-    }
+    } */
     .goals {
         flex: none;
         margin: 2% 2% 2% 2%;
     }
-    .projects {
+    /* .projects {
         flex: none;
         margin: 2% 2% 2% 2%;
-    }
+    } */
     .about-text-container {
         text-align: center;
         margin-right: 10%; /* Adjust the value as needed */
