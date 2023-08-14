@@ -1,0 +1,436 @@
+/* Set up CSS stuff for small, medium, large, and jumbo size, along with a CSS style that takes up the entire screen of what it's displayed on*/
+
+.jumbo {
+    font-size: 5rem;
+} 
+
+.large {
+    font-size: 3rem;
+} 
+
+.middle {
+    display: flex;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+} 
+
+/* Make classes for dark theme background (black and grey background and white text)*/
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+.dark-theme {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+#test p {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+  }
+
+  .fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .image-container {
+    position: relative;
+}
+
+.dot-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.goal-project-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.goals {
+    flex: 2;
+    margin: 2% 1% 2% 2%;
+}
+
+.projects {
+    flex: 3;
+    margin: 2% 2% 2% 1%;
+}
+
+.about-text-container {
+    text-align: left;
+    margin-right: 10%; /* Adjust the value as needed */
+    margin-left: 40%;
+    margin-top: 35%;
+    margin-bottom: 25%;
+}
+
+@media (max-width: 768px) {
+    .large {
+        font-size: 1rem;
+    }
+    
+    .jumbo {
+        font-size: 2rem;
+    }
+
+    .circular-image {
+        width: 50%;
+        height: auto;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .fade-in.active {
+        opacity: 1;
+        transform: none;
+    }
+    .goal-project-container {
+        display: inline-block;
+        flex-wrap: nowrap;
+    }
+    .goals {
+        flex: none;
+        margin: 2% 2% 2% 2%;
+    }
+    .projects {
+        flex: none;
+        margin: 2% 2% 2% 2%;
+    }
+    .about-text-container {
+        text-align: center;
+        margin-right: 10%; /* Adjust the value as needed */
+        margin-left: 10%;
+        margin-top: 35%;
+        margin-bottom: 25%;
+    }
+    .about-logo-image {
+        display: none;
+    }
+    
+}
+
+/* Media query for smaller vertical screens */
+/* @media screen and (max-width: 768px) {
+    .image-container,
+    .circular-image {
+        display: none; Hide the image and container on smaller screens
+    }
+} */
+
+.black-background {
+    background-color: black;   
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black; /* Change to your preferred background color */
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+.fullscreen {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh; /* Set the height to 100vh for fullscreen */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* Change align-items to flex-start */
+}
+
+.fullscreen-experience {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 200vh; /* Set the height to 100vh for fullscreen */
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* Change align-items to flex-start */
+}
+
+.accordion {
+    border: 2px solid white;
+}
+
+.fullscreen-and-half {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 150vh; /* Set the height to 100vh for fullscreen */
+    overflow: hidden;
+    display: flex;
+    /* align-items: flex-start; Change align-items to flex-start */
+}
+
+.intro-text-container {
+    text-align: left;
+    margin-left: 10%; /* Adjust the value as needed */
+    margin-top: 0%;
+    margin-bottom: 25%;
+}
+
+.UIUC-logo-image {
+    position: absolute;
+    top: calc(10% + 10px);
+    right: 15%;
+    width: 550px;
+    z-index: -10;
+}
+
+.about-logo-image {
+    position: absolute;
+    border-radius: 50%; /* To create a circular shape */
+    border: 2px solid transparent; /* Transparent border to create the space for the rings */
+    box-sizing: border-box;
+    padding: 10px;
+    top: calc(25% + 10px);
+    right: 65%;
+    width: 400px;
+    z-index: -10;
+
+    /* Outer ring gradient border */
+    background: linear-gradient(45deg, #003399, #003399, #FF6600);
+    -webkit-background-clip: padding-box; /* For Safari/Chrome */
+    background-clip: padding-box;
+
+    /* Inner ring gradient background */
+    overflow: hidden;
+}
+
+.about-section {
+    width: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease-in-out;
+    background: linear-gradient(45deg, #003399, #FF6600);
+    background-size: 120% 100%;
+    transition: background 0.5s;
+}
+
+.about-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.about-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+}
+
+/* Change background color on hover */
+
+.about-section:hover {
+    background-position: 100% 0;
+}
+.box-image {
+    /* object-fit: cover; */
+    max-width: 50px;
+    max-height: 50px;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    /* background-image: linear-gradient(to top, #86377b 20%, #27273c 80%); */
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+    visibility: visible;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+    visibility: visible;
+}
+.bgBottom {
+    z-index: 5;
+    visibility: visible;
+}
+.wave {
+    position: fixed;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    pointer-events: none; /* Add this line to allow interactions through the wave */
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+.card-text {
+    font-size: 1 rem;
+}
+
+.card {
+    transition: box-shadow 0.3s ease-in-out; /* Adding a smooth transition for the shadow */
+}
+
+.card:hover {
+    box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.5); /* Grey shadow on hover */
+}
+
+
+.want-section {
+    width: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease-in-out;
+    background: linear-gradient(135deg, #7289DA, #000000, #7289DA);
+    background-size: 200% 100%;
+    transition: background 0.5s;
+    background-position: center;
+}
+
+.want-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.want-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.want-content p {
+    font-size: 1.2rem;
+}
+
+/* Change background color on hover */
+
+.want-section:hover {
+    background-size: .01% 100%;
+}
+
+.bottom-bar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .bottom-bar a {
+    color: white;
+    margin: 0 15px;
+    font-size: 24px;
+  }
+  .bottom-bar a:hover {
+    color: #007bff; /* Change color on hover */
+  }
+
+  .container-fluid {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-card {
+    background-color: black;
+    color: #ffcc00;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+  }
+  .contact-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
