@@ -1,0 +1,566 @@
+% \documentclass[letterpaper,10pt]{article}
+
+% \usepackage{latexsym}
+% \usepackage[empty]{fullpage}
+% \usepackage{titlesec}
+% \usepackage{marvosym}
+% \usepackage[usenames,dvipsnames]{color}
+% \usepackage{verbatim}
+% \usepackage{enumitem}
+% \usepackage[hidelinks]{hyperref}
+% \usepackage{fancyhdr}
+% \usepackage[english]{babel}
+% \usepackage{tabularx}
+% \input{glyphtounicode}
+
+% % Font options
+% \usepackage{newtxtext,newtxmath}  % Use Times New Roman font
+
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+% \addtolength{\oddsidemargin}{-0.5in}
+% \addtolength{\evensidemargin}{-0.5in}
+% \addtolength{\textwidth}{1in}
+% \addtolength{\topmargin}{-0.25in}
+% \addtolength{\textheight}{0.5in}
+
+% \urlstyle{same}
+% \raggedbottom
+% \raggedright
+% \setlength{\tabcolsep}{0in}
+
+% % Section formatting
+% \titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+
+% % Ensure PDF is machine readable
+% \pdfgentounicode=1
+
+% % Custom commands
+% \newcommand{\resumeItem}[1]{\item\small{#1} \vspace{-3pt}}
+% \newcommand{\resumeSubheading}[4]{
+% \vspace{-1.0pt}\item
+%   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+%     \textbf{#1} & #2 \
+%     #3 & #4 \
+%   \end{tabular*}\vspace{-7pt}
+% }
+
+% \newcommand{\resumeDegreeSubheading}[6]{
+% \vspace{-1.0pt}\item
+%   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+%     \textbf{#1} & #2 \
+%     #3 & #4 \
+%     #5 & #6 \
+%   \end{tabular*}\vspace{-7pt}
+% }
+
+
+% \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+% \newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+% \newcommand{\resumeSubHeadingListEnd}{\vspace{-6.4pt}\end{itemize}}
+
+% \begin{document}
+
+% \begin{center}
+%   \textbf{\Huge Saipranav Venkatakrishnan} \
+%   \vspace{0.2em}
+%   \large 847-348-0250 $|$ \href{mailto:saipranavvk@gmail.com}{sv34@illinois.edu} $|$ 
+%   \href{https://www.linkedin.com/in/saipranav-venkatakrishnan}{linkedin.com/in/saipranav-venkatakrishnan} $|$
+%   \href{https://github.com/Sai-Pra}{https://github.com/Sai-Pra}
+% \end{center}
+
+% % \section{Summary}
+% % Passionate Computer Engineer with a strong background in Low Latency Systems, Operating Systems Development, and GPU Programming. Skilled in C, C++, CUDA C++, Python, and a PyTorch contributor. Passions include 3D Modeling/Design and playing Quadball!
+% % Passionate AI/ML engineer with a strong background in deep learning, computer vision, and natural language processing. Skilled in Python, TensorFlow, PyTorch, and various ML libraries. Excellent problem-solving, research, and collaboration abilities. Seeking a challenging role to develop cutting-edge AI solutions.
+
+% % \section{Summary}
+% % \vspace{-0.5em}
+% % \resumeSubHeadingList
+% %   \resumeItem{Senior in Computer Engineering specializing in CPU architecture, RTL design, verification, and operating systems development. Looking for challenging roles in processor and hardware design where I can apply and expand my expertise in high-performance processor systems and system-level software interactions.}
+% % \resumeSubHeadingListEnd
+% \vspace{-1.5em}
+% \section{Education}
+% \vspace{-0.5em}
+% \resumeSubHeadingList
+%   \resumeDegreeSubheading
+%       {University of Illinois Urbana-Champaign}{GPA: 3.85}
+%       {B.S. in Computer Engineering}{August 2022--May 2026}
+%       {John P. Desmond Electrical and Computer Engineering Scholarship Award Recipient}{}
+%       % {Expected: M.S.}{August 2026--May 2028}
+%       % {}{}
+%   \vspace{0.5em}
+%   \resumeItem{\textbf{Related Coursework}: Computer Architecture, VLSI Design, Computer Organization and Design, Logic Synthesis, Data Structures and Algorithms, Operating Systems Development, Digital Systems Lab, Applied Parallel Programming, Introduction to Algorithms and Models of Computations}
+
+% \resumeSubHeadingListEnd
+
+% \section{Technical Skills}
+% \vspace{-0.5em}
+% \resumeSubHeadingList
+%   \resumeItem{\textbf{Programming Languages and Skills}: SystemVerilog, C, C++, CUDA C++, Python, Lua, ASIC Design, Computer Vision, Object-Oriented Programming, Parallel and Multithreaded Programming, Networking, SIS, ABC}
+%   % \resumeItem{\textbf{Library Contributions}: PyTorch, CME Internal Compute Libraries, }
+%   \resumeItem{\textbf{Libraries \& Tools}: Synopsys Design Compiler, Synopsys VCS, Verdi, Verilator, Vivado, Vitis, FPGA, Nvidia Nsight Compute, Nvidia Nsight Systems, Oscilloscope, Git, Arduino, Google Cloud, Docker, Kubernetes, Pytorch, Vulkan, Qiskit}
+% \resumeSubHeadingListEnd
+
+% \section{Experience}
+% \vspace{-0.5em}
+% \resumeSubHeadingList
+%     \resumeSubheading
+%       {Incoming ASIC Design Intern}{May 2026 -- August 2026}
+%       {NVIDIA}{Santa Clara, CA}
+%     \resumeSubheading
+%       {Undergraduate Hardware Research Assistant}{December 2024 -- Present}
+%       {PlatformX}{Champaign, IL}
+%       \resumeSubHeadingList
+%         % \resumeItem{\textbullet\ Improved \textbf{bandwidth utilization} and \textbf{compute efficiency} of AI Wafer-scale chips by developing architectural simulator of new heterogeneous core designs, achieving up to \textbf{15\% performance gains}}
+%         \resumeItem{\textbullet\ Designed an \textbf{architectural simulator} to profile AI Wafer-scale chip designs, helping find improvements to \textbf{bandwidth utilization} and \textbf{compute efficiency} through \textbf{heterogeneous core }designs}
+%         \resumeItem{\textbullet\ Extended \textbf{GPGPU-Sim} (\textbf{cycle-accurate simulator}) with \textbf{C++} and automation scripts to enable detailed profiling of \textbf{memory access patterns} and \textbf{interconnect bandwidth}}
+%         \resumeItem{\textbullet\ Applied simulator extensions to investigate architectural tradeoffs across various \textbf{high-speed interconnect} designs within \textbf{GPU Processing Clusters (GPCs)}, focusing on interactions between \textbf{L1 cache slices} and \textbf{streaming multiprocessors (SMs)} optimized for \textbf{AI workloads}}
+%       \resumeSubHeadingListEnd
+%     \vspace{0.2em}
+%     \resumeSubheading
+%       {Computer Architecture (ECE 411) Course Staff}{August 2025 -- Present}
+%       {UIUC Computer Organization and Design}{Champaign, IL}
+%       \resumeSubHeadingList
+%         % Guided -> Trained (Implies knowledge)
+%         \resumeItem{\textbullet\ Trained students in designing and implementing \textbf{out-of-order RISC-V processors} with advanced features such as \textbf{non-blocking pipeline caching}, \textbf{branch prediction} and \textbf{recovery}, out-of-order \textbf{load/store units}, and \textbf{superscalar} execution}
+%         \resumeItem{\textbullet\ Mentored students on \textbf{RTL debugging} across \textbf{pipeline} and \textbf{cache} projects, providing targeted design and verification support}
+%         \resumeItem{\textbullet\ Orchestrated competition with fellow course staff to profile and test \textbf{30+ RISC-V processors}, ranking them on metrics related to \textbf{Power, Performance, and Area (PPA)}}
+%       \resumeSubHeadingListEnd
+%     \vspace{0.2em}
+%     \resumeSubheading
+%       {Graphics Engineering Intern}{May 2025 -- August 2025}
+%       {Aechelon Technology}{Roeland Park, KS}
+%         \resumeSubHeadingList
+%           \resumeItem{\textbullet\ Integrating SMPTE ST 2110-compliant \textbf{UDP transmission} into the pC-Nova platform via NVIDIA Rivermax SDK, utilizing \textbf{GPUDirect and RDMA} with full kernel bypass to eliminate \textbf{CPU bottlenecks}}
+%           \resumeItem{\textbullet\ Implemented 5 \textbf{GPU kernels} and custom \textbf{fragment shaders} to transform output media into various color (e.g., YUV, sRGB) and vector spaces for compatibility with heterogeneous display systems}
+%           \resumeItem{\textbullet\ Optimizing real-time media streaming by collaborating with senior engineers to leverage hardware-accelerated networking and GPU-based processing}
+%     \resumeSubHeadingListEnd
+    
+%   % \resumeSubheading
+%   %     {Software Development Intern}{May 2024--November 2024}
+%   %     {CME Group}{Chicago, IL}
+%   %     \resumeSubHeadingList
+%   %         \resumeItem{\textbullet\ Lead a team of 4 interns in developing an application to \textbf{monitor project deployments} to on-premises and cloud server for any \textbf{abnormal resource allocations} and stalls}
+%   %         \resumeItem{\textbullet\ Won \textbf{first place} in an internal \textbf{CME Hackathon} to develop a \textbf{low-latency trading algorithm}, earning $1000 as the prize}
+%   %     \resumeSubHeadingListEnd
+%   % \resumeSubheading
+%   %     {Software Development Intern}{March 2023--August 2023}
+%   %     {CME Group}{Champaign, IL}
+%   %     \resumeSubHeadingList
+%   %         \resumeItem{\textbullet\ Supervised a team of 5 intern through \textbf{creating} an internal \textbf{C++ library} to validate research papers about methods to foretell stock prices through corresponding future market data}
+%   %         \resumeItem{\textbullet\ Configured a CME security compliant remote development environment and integrated over \textbf{3000+ lines} into the CME codebase}
+%   %     \resumeSubHeadingListEnd
+% \resumeSubHeadingListEnd
+
+% \section{Projects}
+% \vspace{-0.5em}
+% \resumeSubHeadingList
+%     \resumeSubheading
+%       {RV-32IM RISC-V Processor}{January 2025 -- May 2025} 
+%       {Computer Architecture Project}{SystemVerilog, C++}
+%       \resumeSubHeadingList
+%         \resumeItem{\textbullet\ Designed and verified a pipelined, out-of-order, \textbf{N-way superscalar processor} based on the \textbf{RV32IM ISA}, with explicit register renaming}
+%         \resumeItem{\textbullet\ Implemented a split Load/Store Unit for \textbf{speculative memory operations}, branch predictors, and \textbf{non-blocking pipelined cache}, including \textbf{functional coverage} metrics to assess verification completeness}
+%         \resumeItem{\textbullet\ Debugged RTL with waveform tracing using \textbf{Verilator} and \textbf{Verdi}; verification involved writing unit-level \textbf{SystemVerilog testbenches} and assertions to validate pipeline stages, and simulations were performed with industry tools (VCS-compatible)}
+%         \resumeItem{\textbullet\ Performed synthesis and power-performance-timing (\textbf{PPA}) analysis using \textbf{Synopsys Design Compiler}; evaluated across multiple testcases for critical path delays, area constraints, and \textbf{dynamic power} efficiency}
+%       \resumeSubHeadingListEnd
+%       \vspace{0.2em}
+    
+%   % \resumeSubheading
+%   %     {Graphics Engine}{May 2024 -- August 2024} 
+%   %     {Graphics Project}{C++, Vulkan}
+%   %   \resumeSubHeadingList
+%   %     \resumeItem{\textbullet\ Building a \textbf{graphics pipeline} from scratch using the \textbf{Vulkan SDK}, with over \textbf{6K lines of C++ code} written across the entire codebase for low-latency rendering}
+%   %     \resumeItem{\textbullet\ Implemented 5+ core \textbf{graphics pipeline stages}, including input assembly, rasterization, fragment shading, and framebuffer presentation}
+%   %     \resumeItem{\textbullet\ Developed a system to automate Vulkan pipeline creation and manage 5+ \textbf{shader modules} across multiple \textbf{render passes}}
+%   %   \resumeSubHeadingListEnd
+
+%     % \resumeSubheading
+%     %   {Spiking Neural Network}{October 2024 -- January 2025} 
+%     %   {Hardware Synthesis and Neuromorphic Computing}{SystemVerilog, FPGA}
+%     % \resumeSubHeadingList
+%     %   \resumeItem{\textbullet\ Researched \textbf{neuromorphic architectures} and deployed a \textbf{spiking neural network} on an FPGA trained on the \textbf{Berkeley DROID Dataset} for Robotic Manipulation}
+%     %   \resumeItem{\textbullet\ Trained Leaky-Integrate-and-Fire (LIF) neuron weights in \textbf{PyTorch}, performed \textbf{quantization} for hardware compatibility, and mapped parameters to fixed-point representations}
+%     %   \resumeItem{\textbullet\ Designed LIF neuron modules using shift-register counters to emulate membrane potential dynamics and developed inter-layer \textbf{FIFO queues} to stage \textbf{asynchronous spike traffic}}
+%     %   \resumeItem{\textbullet\ Streamed multi-gigabyte testing data through the \textbf{UART protocol} to the \textbf{FPGA} and back, testing inference accuracy against PyTorch model}
+%     % \resumeSubHeadingListEnd
+    
+
+%     % \resumeSubheading
+%     %   {Audio Visualizer Theremin}{October 2024 -- December 2024} 
+%     %   {Hardware Synthesis and Verification}{SystemVerilog, FPGA}
+%     %   \resumeSubHeadingList
+%     %     \resumeItem{\textbullet\ Designed and implemented an FPGA-based SoC on Xilinx for real-time audio synthesis and VGA visualization, controlled via UART input; integrated a MicroBlaze soft processor with custom hardware modules (audio generator, VGA controller) for real-time processing}
+%     %     \resumeItem{\textbullet\ Developed a modular SystemVerilog testbench framework for both component and SoC-level validation, featuring automated stimulus generation, self-checking monitors, and coverage tracking}
+%     %     \resumeItem{\textbullet\ Validated and debugged designs in Vivado using assertions and waveform analysis to ensure correctness across audio processing states}
+        
+%     %   \resumeSubHeadingListEnd
+    
+%   % \resumeSubheading
+%   %     {32-bit Operating System}{January 2024 -- May 2024}
+%   %     {Systems Project}{C, x86, QEMU}
+%   %     \resumeSubHeadingList
+%   %         \resumeItem{\textbullet\ Programmed a 32-bit Operating System with a \textbf{3-terminal interface} for \textbf{IA-32} architecture using \textbf{x86 assembly and C}}
+%   %         \resumeItem{\textbullet\ Developed a 2-Radix \textbf{Paging System} and \textbf{Allocator} for both 4KB and 4MB page}
+%   %         \resumeItem{\textbullet\ Constructed a simple \textbf{virtual file-system} and over 10 \textbf{system call handlers} to interface with the kernel and the physical file-system}
+%   %         \resumeItem{\textbullet\ Designed a \textbf{Round Robin Scheduling algorithm} for switching between various userspace programs}
+%   %     \resumeSubHeadingListEnd
+%   % \resumeSubheading
+%   %     {Convolutional Neural Network Optimization}{January 2024 -- May 2024}
+%   %     {Parallel Algorithm and Profiling Project}{CUDA, C++}
+%   %     \resumeSubHeadingList
+%   %         \resumeItem{\textbullet\ Researched and implemented a scalable \textbf{CNN forward pass layer} using \textbf{CUDA}, and verified optimization efficiency through the use of Nvidia Nsight Systems and Compute}
+%   %         \resumeItem{\textbullet\ Optimized convolutions through the use of streams, \textbf{shared memory}, constant memory, matrix unrolling, \textbf{tensor cores}, and using custom \textbf{half2} data types}
+%   %     \resumeSubHeadingListEnd
+%   % \resumeSubheading
+%   %     {Pytorch Contributions}{}
+%   %     {AI/ML Contributions}{}
+%   %     \resumeSubHeadingList
+%   %         \resumeItem{\textbullet\ Contributed to PyTorch by writing documentation during PyTorch annual Docathon}
+%   %         \resumeItem{\textbullet\ Connected with PyTorch developers to understand code and write correct and detailed comments about their purpose}
+%   %     \resumeSubHeadingListEnd
+% \resumeSubHeadingListEnd
+
+
+% % \section{Student Organizations}
+% % \vspace{-0.5em}
+% % \resumeSubHeadingList
+% %     \resumeSubheading
+% %       {Engineering Tutor}{January 2024--Present}
+% %       {Eta Kappa Nu Honor Society}{Champaign, IL}
+% %       \resumeSubHeadingList
+% %       \resumeItem{\textbullet\ Inducted as a \textbf{top 20\% student} in the department; tutor peers in topics ranging from LC-3 \textbf{assembly} and \textbf{C} programming to analog \textbf{signal processing}, \textbf{multivariable calculus}, and \textbf{architecture design}}
+% %       \resumeItem{\textbullet\ Create custom study guides and \textbf{host review sessions} across 5+ engineering courses, supporting \textbf{100+ students} in exam preparation}
+% %       \resumeSubHeadingListEnd
+% %       \vspace{0.2em}
+
+% %     \resumeSubheading
+% %         {SIGArch}{Champaign, IL}
+% %         {Member}{January 2023 -- Present}
+% %         \resumeSubHeadingList
+% %           \resumeItem{\textbullet\ Facilitated \textbf{technical discussions and reading groups} on computer architecture topics, including modern \textbf{CPUs}, \textbf{GPUs}, and \textbf{emerging accelerator designs}}
+% %           \resumeItem{\textbullet\ Helped coordinate architecture-focused talks and workshops featuring graduate students and faculty working on \textbf{microarchitecture, memory systems, and parallel computing}}
+% %           \resumeItem{\textbullet\ Collaborated with other \textbf{computing organizations} to host events bridging architecture with \textbf{systems, compilers, and hardware-software co-design}}
+% %           \resumeItem{\textbullet\ Supported \textbf{professional and academic networking events} connecting undergraduate students with graduate researchers and industry professionals in computer architecture}
+% %         \resumeSubHeadingListEnd
+% %           \vspace{0.2em}
+
+% %     \resumeSubheading
+% %       {Social Chair}{May 2023 -- May 2024}
+% %       {Association for Computing Machinery}{Champaign, IL}
+% %         \resumeSubHeadingList
+% %           \resumeItem{\textbullet\ Organized and hosted \textbf{50+ social events}, including weekly social hours that connected engineering students from freshmen to graduate levels}
+% %           \resumeItem{\textbullet\ \textbf{Expanded organization membership} by over 300 students through active community engagement and \textbf{cross-disciplinary outreach}}
+% %           \resumeItem{\textbullet\ Collaborated with \textbf{4+ campus organizations} to \textbf{plan minority-inclusive events} and co-host a large-scale joint school dance}
+% %           \resumeItem{\textbullet\ Assisted in coordinating \textbf{12+ professional networking events}, enabling students to engage with \textbf{industry professionals} across diverse computing disciplines}
+% %     \resumeSubHeadingListEnd
+    
+
+
+% % \resumeSubHeadingListEnd
+% \end{document}
+
+
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage{newtxtext,newtxmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.25in}
+\addtolength{\textheight}{0.5in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{#1} \vspace{-3pt}}
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1.0pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \
+    #3 & #4 \
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeDegreeSubheading}[6]{
+\vspace{-1.0pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \
+    #3 & #4 \
+    #5 & #6 \
+  \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\vspace{-6.4pt}\end{itemize}}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge Saipranav Venkatakrishnan} \
+  \vspace{0.2em}
+  \large 847-348-0250 $|$ \href{mailto:saipranavvk@gmail.com}{saipranavvk@gmail.com} $|$
+  \href{https://www.linkedin.com/in/saipranav-venkatakrishnan}{linkedin.com/in/saipranav-venkatakrishnan} $|$
+  \href{https://github.com/Sai-Pra}{github.com/Sai-Pra}
+\end{center}
+
+\vspace{-1.5em}
+\section{Education}
+\vspace{-0.5em}
+\resumeSubHeadingList
+  \resumeDegreeSubheading
+      {University of Illinois Urbana-Champaign}{}
+      {B.S. in Computer Engineering}{August 2022 -- May 2026 (GPA: 3.85)}
+      {M.S./PhD in Computer Engineering}{August 2026 -- May 2032}
+  \vspace{0.5em}
+  \resumeItem{\textbf{Skills \& Tools}: SystemVerilog, Verilog, C/C++, CUDA C++, Python; Synopsys Design Compiler, VCS, Verdi, Verilator, Yosys, Spyglass Linter, CDC/RDC Analysis, Nvidia Nsight Compute/Systems, Git, PyTorch; ASIC \& RTL Design, Hardware--Software Co-design, Computer Architecture, VLSI Design, Logic Synthesis, Parallel Programming}
+\resumeSubHeadingListEnd
+
+% \section{Technical Skills}
+% \vspace{-0.5em}
+% \resumeSubHeadingList
+%   \resumeItem{\textbf{Languages \& Design}: SystemVerilog, Verilog, C, C++, CUDA C++, Python, Lua; ASIC Design, RTL Design, Hardware--Software Co-design, Parallel \& Multithreaded Programming}
+%   \resumeItem{\textbf{Tools \& Flows}: Synopsys Design Compiler, Synopsys VCS, Verdi, Verilator, Yosys, lint (Spyglass), CDC/RDC Analysis, Vivado, Vitis, FPGA, Nvidia Nsight Compute, Nvidia Nsight Systems, Git, Docker, Kubernetes, PyTorch, Vulkan, Qiskit, SIS, ABC}
+% \resumeSubHeadingListEnd
+
+\section{Experience}
+\vspace{-0.5em}
+\resumeSubHeadingList
+
+    % -----------------------------------------------------------------------
+    % NVIDIA -- now with real bullets from NVLink Chip2Chip work
+    % CDC is explicitly called out in the OpenAI JD tools/methodology list;
+    % packetization + fanout reduction + async/sync transactions are all
+    % directly relevant to compute, memory, and interconnect components
+    % -----------------------------------------------------------------------
+    \resumeSubheading
+      {ASIC Design Intern --- NVLink}{May 2026 -- August 2026}
+      {NVIDIA}{Santa Clara, CA}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Designed \textbf{20+ production Verilog modules} for the \textbf{NVLink Chip-to-Chip interconnect}, implementing \textbf{packet framing/deframing}, \textbf{interconnect fanout reduction}, and \textbf{asynchronous/synchronous transaction} handling}
+        \resumeItem{\textbullet\ Implemented \textbf{CDC (Clock Domain Crossing)} logic for high-speed chip-to-chip links, applying synchronizer chains and handshake protocols to ensure \textbf{functional correctness} and \textbf{timing closure} across async clock boundaries}
+        \resumeItem{\textbullet\ Collaborated with \textbf{DV and Physical Design} teams to verify module integration, validate \textbf{CDC/RDC} constraints, and meet area and timing targets within the full NVLink SoC design flow}
+      \resumeSubHeadingListEnd
+    \vspace{0.2em}
+
+    % -----------------------------------------------------------------------
+    % PlatformX -- re-led with co-design and AI workload language from JD
+    % -----------------------------------------------------------------------
+    \resumeSubheading
+      {Undergraduate AI Hardware Research Assistant}{December 2024 -- Present}
+      {PlatformX}{Champaign, IL}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Helped develop an \textbf{architectural simulator} for \textbf{AI wafer-scale accelerators}, enabling \textbf{hardware--software co-design} studies that identify improvements in \textbf{bandwidth utilization} and \textbf{compute efficiency} through reconfigurable designs}
+        \resumeItem{\textbullet\ Modeled \textbf{AI/ML workload dataflow} across accelerator subsystems to evaluate \textbf{performance--area--power tradeoffs}, providing architectural feedback to guide \textbf{compute and memory subsystem} design decisions}
+        \resumeItem{\textbullet\ Extended \textbf{GPGPU-Sim} (cycle-accurate simulator) with \textbf{C++} to enable detailed profiling of \textbf{memory access patterns} and \textbf{interconnect bandwidth}; applied across \textbf{GPU Processing Cluster (GPC)} designs studying \textbf{L1 cache slice} and \textbf{SM} interactions optimized for \textbf{AI workloads}}
+      \resumeSubHeadingListEnd
+    \vspace{0.2em}
+
+    % -----------------------------------------------------------------------
+    % ECE 411 Course Staff
+    % -----------------------------------------------------------------------
+    \resumeSubheading
+      {Computer Architecture (ECE 411) Course Staff}{August 2025 -- Present}
+      {UIUC Computer Organization and Design}{Champaign, IL}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Trained students in designing and implementing \textbf{out-of-order RISC-V processors} with \textbf{non-blocking pipeline caching}, \textbf{branch prediction \& recovery}, out-of-order \textbf{load/store units}, and \textbf{superscalar} execution}
+        \resumeItem{\textbullet\ Mentored students on \textbf{RTL debugging} across pipeline and cache projects using \textbf{Verdi} and \textbf{Verilator}; orchestrated competition profiling \textbf{30+ RISC-V processors} on \textbf{Power, Performance, and Area (PPA)} metrics}
+      \resumeSubHeadingListEnd
+    \vspace{0.2em}
+
+    % -----------------------------------------------------------------------
+    % Aechelon
+    % -----------------------------------------------------------------------
+    % \resumeSubheading
+    %   {Graphics Engineering Intern}{May 2025 -- August 2025}
+    %   {Aechelon Technology}{Roeland Park, KS}
+    %   \resumeSubHeadingList
+    %     \resumeItem{\textbullet\ Integrated SMPTE ST 2110-compliant \textbf{UDP transmission} into the pC-Nova platform via NVIDIA Rivermax SDK, utilizing \textbf{GPUDirect and RDMA} with full kernel bypass to eliminate \textbf{CPU bottlenecks}}
+    %     \resumeItem{\textbullet\ Implemented 5 \textbf{GPU kernels} and custom \textbf{fragment shaders} for color space conversion (YUV, sRGB) across heterogeneous display systems; optimized \textbf{hardware-accelerated} real-time media streaming with senior engineers}
+    %   \resumeSubHeadingListEnd
+
+    \resumeSubheading
+      {Graphics Engineering Intern}{May 2025 -- August 2025}
+      {Aechelon Technology}{Roeland Park, KS}
+        \resumeSubHeadingList
+          \resumeItem{\textbullet\ Integrating SMPTE ST 2110-compliant \textbf{UDP transmission} into the pC-Nova platform via NVIDIA Rivermax SDK, utilizing \textbf{GPUDirect and RDMA} with full kernel bypass to eliminate \textbf{CPU bottlenecks}}
+          \resumeItem{\textbullet\ Implemented 5 \textbf{GPU kernels} and custom \textbf{fragment shaders} to transform output media into various color (e.g., YUV, sRGB) and vector spaces for compatibility with heterogeneous display systems}
+          \resumeItem{\textbullet\ Optimizing real-time media streaming by collaborating with senior engineers to leverage hardware-accelerated networking and GPU-based processing}
+    \resumeSubHeadingListEnd
+    
+  \resumeSubheading
+      {Software Development Intern}{May 2024--November 2024}
+      {CME Group}{Chicago, IL}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Lead a team of 4 interns in developing an application to \textbf{monitor project deployments} to on-premises and cloud server for any \textbf{abnormal resource allocations} and stalls}
+          \resumeItem{\textbullet\ Won \textbf{first place} in an internal \textbf{CME Hackathon} to develop a \textbf{low-latency trading algorithm}, earning $1000 as the prize}
+      \resumeSubHeadingListEnd
+  \resumeSubheading
+      {Software Development Intern}{March 2023--August 2023}
+      {CME Group}{Champaign, IL}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Supervised a team of 5 intern through \textbf{creating} an internal \textbf{C++ library} to validate research papers about methods to foretell stock prices through corresponding future market data}
+          \resumeItem{\textbullet\ Configured a CME security compliant remote development environment and integrated over \textbf{3000+ lines} into the CME codebase}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+
+\section{Projects}
+\vspace{-0.5em}
+\resumeSubHeadingList
+
+    % -----------------------------------------------------------------------
+    % FORTE -- now with rich detail from the paper
+    % Tape-out track record is the #1 thing the JD asks for.
+    % Lead with the scope, then ECC/scrubbing, then RoT/Keystone co-design,
+    % then synthesis/area numbers (concrete = credible)
+    % -----------------------------------------------------------------------
+    \resumeSubheading
+      {FORTE: Fault-Tolerant RISC-V Processor Tape-Out}{April 2025 -- Present}
+      {Silicon Research Project (65nm Tape-Out)}{SystemVerilog, VCS Design Compiler, Verdi, Spyglass, Yosys}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Designed and implemented \textbf{fault-tolerance RTL} on a \textbf{CORE-V Wally} (RV64IMA, Sv39 MMU, PMP, M/S-mode) baseline targeting \textbf{65nm tape-out}; features include \textbf{SECDED ECC} across register file, L1 I/D-cache, PTW/TLB, a \textbf{cacheline and CSR scrubbing FSM}, and a \textbf{shadow pipeline} for redundant execution-unit fault detection}
+        \resumeItem{\textbullet\ Implemented \textbf{clock integrity monitor} (reference-oscillator comparison, $\pm\% glitch threshold, pipeline flush/reset response) and \textbf{micro-TMR hardening} for security-critical CSRs (\texttt{mstatus}, \texttt{mepc}, \texttt{mtvec}, PMP regs) to defend against physical fault-injection attacks}
+        \resumeItem{\textbullet\ Built complete \textbf{hardware Root of Trust} infrastructure: boot ROM with \textbf{SHA-256/RSA-2048} image authentication, \textbf{TRNG} via prime-length ring oscillators (Zkr), and full Keystone \textbf{TEE co-design} (16 PMP CSRs, architectural state scrubbing on enclave entry/exit, debug port lockdown)}
+        \resumeItem{\textbullet\ Conducted area feasibility study using \textbf{VCS Design Compiler} using TSMC's 65nm PDK; designed \textbf{AXI-Lite chip-to-board interface} ($\sim0 pins) for FPGA-based bringup}
+      \resumeSubHeadingListEnd
+      \vspace{0.2em}
+
+    % -----------------------------------------------------------------------
+    % RV-32IM OOO Processor
+    % -----------------------------------------------------------------------
+    \resumeSubheading
+      {RV-32IM Out-of-Order RISC-V Processor}{January 2025 -- May 2025}
+      {Computer Architecture Project}{SystemVerilog, C++}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Designed and verified a pipelined, out-of-order, \textbf{N-way superscalar processor} based on the \textbf{RV32IM ISA}, with explicit register renaming}
+        \resumeItem{\textbullet\ Implemented a split Load/Store Unit for \textbf{speculative memory operations}, branch predictors, and \textbf{non-blocking pipelined cache}, including \textbf{functional coverage} metrics to assess verification completeness}
+        \resumeItem{\textbullet\ Debugged RTL with waveform tracing using \textbf{Verilator} and \textbf{Verdi}; verification involved writing unit-level \textbf{SystemVerilog testbenches} and assertions to validate pipeline stages, and simulations were performed with industry tools (VCS-compatible)}
+        \resumeItem{\textbullet\ Performed synthesis and power-performance-timing (\textbf{PPA}) analysis using \textbf{Synopsys Design Compiler}; evaluated across multiple testcases for critical path delays, area constraints, and \textbf{dynamic power} efficiency}
+      \resumeSubHeadingListEnd
+      \vspace{0.2em}
+
+  \resumeSubheading
+      {Graphics Engine}{May 2024 -- August 2024} 
+      {Graphics Project}{C++, Vulkan}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Building a \textbf{graphics pipeline} from scratch using the \textbf{Vulkan SDK}, with over \textbf{6K lines of C++ code} written across the entire codebase for low-latency rendering}
+      \resumeItem{\textbullet\ Implemented 5+ core \textbf{graphics pipeline stages}, including input assembly, rasterization, fragment shading, and framebuffer presentation}
+      \resumeItem{\textbullet\ Developed a system to automate Vulkan pipeline creation and manage 5+ \textbf{shader modules} across multiple \textbf{render passes}}
+    \resumeSubHeadingListEnd
+
+    \resumeSubheading
+      {Spiking Neural Network}{October 2024 -- January 2025} 
+      {Hardware Synthesis and Neuromorphic Computing}{SystemVerilog, FPGA}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Researched \textbf{neuromorphic architectures} and deployed a \textbf{spiking neural network} on an FPGA trained on the \textbf{Berkeley DROID Dataset} for Robotic Manipulation}
+      \resumeItem{\textbullet\ Trained Leaky-Integrate-and-Fire (LIF) neuron weights in \textbf{PyTorch}, performed \textbf{quantization} for hardware compatibility, and mapped parameters to fixed-point representations}
+      \resumeItem{\textbullet\ Designed LIF neuron modules using shift-register counters to emulate membrane potential dynamics and developed inter-layer \textbf{FIFO queues} to stage \textbf{asynchronous spike traffic}}
+      \resumeItem{\textbullet\ Streamed multi-gigabyte testing data through the \textbf{UART protocol} to the \textbf{FPGA} and back, testing inference accuracy against PyTorch model}
+    \resumeSubHeadingListEnd
+    
+
+    \resumeSubheading
+      {Audio Visualizer Theremin}{October 2024 -- December 2024} 
+      {Hardware Synthesis and Verification}{SystemVerilog, FPGA}
+      \resumeSubHeadingList
+        \resumeItem{\textbullet\ Designed and implemented an FPGA-based SoC on Xilinx for real-time audio synthesis and VGA visualization, controlled via UART input; integrated a MicroBlaze soft processor with custom hardware modules (audio generator, VGA controller) for real-time processing}
+        \resumeItem{\textbullet\ Developed a modular SystemVerilog testbench framework for both component and SoC-level validation, featuring automated stimulus generation, self-checking monitors, and coverage tracking}
+        \resumeItem{\textbullet\ Validated and debugged designs in Vivado using assertions and waveform analysis to ensure correctness across audio processing states}
+        
+      \resumeSubHeadingListEnd
+    
+  \resumeSubheading
+      {32-bit Operating System}{January 2024 -- May 2024}
+      {Systems Project}{C, x86, QEMU}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Programmed a 32-bit Operating System with a \textbf{3-terminal interface} for \textbf{IA-32} architecture using \textbf{x86 assembly and C}}
+          \resumeItem{\textbullet\ Developed a 2-Radix \textbf{Paging System} and \textbf{Allocator} for both 4KB and 4MB page}
+          \resumeItem{\textbullet\ Constructed a simple \textbf{virtual file-system} and over 10 \textbf{system call handlers} to interface with the kernel and the physical file-system}
+          \resumeItem{\textbullet\ Designed a \textbf{Round Robin Scheduling algorithm} for switching between various userspace programs}
+      \resumeSubHeadingListEnd
+  \resumeSubheading
+      {Convolutional Neural Network Optimization}{January 2024 -- May 2024}
+      {Parallel Algorithm and Profiling Project}{CUDA, C++}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Researched and implemented a scalable \textbf{CNN forward pass layer} using \textbf{CUDA}, and verified optimization efficiency through the use of Nvidia Nsight Systems and Compute}
+          \resumeItem{\textbullet\ Optimized convolutions through the use of streams, \textbf{shared memory}, constant memory, matrix unrolling, \textbf{tensor cores}, and using custom \textbf{half2} data types}
+      \resumeSubHeadingListEnd
+  \resumeSubheading
+      {Pytorch Contributions}{}
+      {AI/ML Contributions}{}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Contributed to PyTorch by writing documentation during PyTorch annual Docathon}
+          \resumeItem{\textbullet\ Connected with PyTorch developers to understand code and write correct and detailed comments about their purpose}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+
+\section{Student Organizations}
+\vspace{-0.5em}
+\resumeSubHeadingList
+    \resumeSubheading
+      {Engineering Tutor}{January 2024--Present}
+      {Eta Kappa Nu Honor Society}{Champaign, IL}
+      \resumeSubHeadingList
+      \resumeItem{\textbullet\ Inducted as a \textbf{top 20\% student} in the department; tutor peers in topics ranging from LC-3 \textbf{assembly} and \textbf{C} programming to analog \textbf{signal processing}, \textbf{multivariable calculus}, and \textbf{architecture design}}
+      \resumeItem{\textbullet\ Create custom study guides and \textbf{host review sessions} across 5+ engineering courses, supporting \textbf{100+ students} in exam preparation}
+      \resumeSubHeadingListEnd
+      \vspace{0.2em}
+
+    \resumeSubheading
+        {SIGArch}{Champaign, IL}
+        {Member}{January 2023 -- Present}
+        \resumeSubHeadingList
+          \resumeItem{\textbullet\ Facilitated \textbf{technical discussions and reading groups} on computer architecture topics, including modern \textbf{CPUs}, \textbf{GPUs}, and \textbf{emerging accelerator designs}}
+          \resumeItem{\textbullet\ Helped coordinate architecture-focused talks and workshops featuring graduate students and faculty working on \textbf{microarchitecture, memory systems, and parallel computing}}
+          \resumeItem{\textbullet\ Collaborated with other \textbf{computing organizations} to host events bridging architecture with \textbf{systems, compilers, and hardware-software co-design}}
+          \resumeItem{\textbullet\ Supported \textbf{professional and academic networking events} connecting undergraduate students with graduate researchers and industry professionals in computer architecture}
+        \resumeSubHeadingListEnd
+          \vspace{0.2em}
+
+    \resumeSubheading
+      {Social Chair}{May 2023 -- May 2024}
+      {Association for Computing Machinery}{Champaign, IL}
+        \resumeSubHeadingList
+          \resumeItem{\textbullet\ Organized and hosted \textbf{50+ social events}, including weekly social hours that connected engineering students from freshmen to graduate levels}
+          \resumeItem{\textbullet\ \textbf{Expanded organization membership} by over 300 students through active community engagement and \textbf{cross-disciplinary outreach}}
+          \resumeItem{\textbullet\ Collaborated with \textbf{4+ campus organizations} to \textbf{plan minority-inclusive events} and co-host a large-scale joint school dance}
+          \resumeItem{\textbullet\ Assisted in coordinating \textbf{12+ professional networking events}, enabling students to engage with \textbf{industry professionals} across diverse computing disciplines}
+    \resumeSubHeadingListEnd
+    
+
+\resumeSubHeadingListEnd
+
+\end{document}

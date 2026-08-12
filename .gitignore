@@ -1,2 +1,10 @@
-
-README.md
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+.bundle/
+node_modules/
+*.gem
+Gemfile.lock

@@ -1,0 +1,49 @@
+- role: "ASIC Design Intern — NVLink"
+  company: NVIDIA
+  location: Santa Clara, CA
+  dates: "May 2026 – Aug 2026"
+  bullets:
+    - "Designed 20+ production Verilog modules for the NVLink Chip-to-Chip interconnect, implementing packet framing/deframing, interconnect fanout reduction, and asynchronous/synchronous transaction handling"
+    - "Implemented CDC (Clock Domain Crossing) logic for high-speed chip-to-chip links, applying synchronizer chains and handshake protocols to ensure functional correctness and timing closure across async clock boundaries"
+    - "Collaborated with DV and Physical Design teams to verify module integration, validate CDC/RDC constraints, and meet area and timing targets within the full NVLink SoC design flow"
+
+- role: "Undergraduate AI Hardware Research Assistant"
+  company: PlatformX
+  location: Champaign, IL
+  dates: "Dec 2024 – present"
+  bullets:
+    - "Helped develop an architectural simulator for AI wafer-scale accelerators, enabling hardware–software co-design studies that identify improvements in bandwidth utilization and compute efficiency through reconfigurable designs"
+    - "Modeled AI/ML workload dataflow across accelerator subsystems to evaluate performance–area–power tradeoffs, providing architectural feedback to guide compute and memory subsystem design decisions"
+    - "Extended GPGPU-Sim (cycle-accurate simulator) with C++ to enable detailed profiling of memory access patterns and interconnect bandwidth; applied across GPU Processing Cluster designs studying L1 cache slice and SM interactions optimized for AI workloads"
+
+- role: "Computer Architecture (ECE 411) Course Staff"
+  company: UIUC Computer Organization and Design
+  location: Champaign, IL
+  dates: "Aug 2025 – present"
+  bullets:
+    - "Trained students in designing and implementing out-of-order RISC-V processors with non-blocking pipeline caching, branch prediction & recovery, out-of-order load/store units, and superscalar execution"
+    - "Mentored students on RTL debugging across pipeline and cache projects using Verdi and Verilator; orchestrated competition profiling 30+ RISC-V processors on Power, Performance, and Area (PPA) metrics"
+
+- role: "Graphics Engineering Intern"
+  company: Aechelon Technology
+  location: Roeland Park, KS
+  dates: "May 2025 – Aug 2025"
+  bullets:
+    - "Integrated SMPTE ST 2110-compliant UDP transmission into the pC-Nova platform via NVIDIA Rivermax SDK, utilizing GPUDirect and RDMA with full kernel bypass to eliminate CPU bottlenecks"
+    - "Implemented 5 GPU kernels and custom fragment shaders to transform output media into various color spaces (YUV, sRGB) for compatibility with heterogeneous display systems"
+
+- role: "Software Development Intern"
+  company: CME Group
+  location: Chicago, IL
+  dates: "May 2024 – Nov 2024"
+  bullets:
+    - "Led a team of 4 interns developing an application to monitor project deployments to on-premises and cloud servers for abnormal resource allocations and stalls"
+    - "Won first place in an internal CME Hackathon by developing a low-latency trading algorithm, earning $1000"
+
+- role: "Software Development Intern"
+  company: CME Group
+  location: Champaign, IL
+  dates: "Mar 2023 – Aug 2023"
+  bullets:
+    - "Supervised a team of 5 interns creating an internal C++ library to validate research papers predicting stock prices from future market data"
+    - "Configured a CME security-compliant remote development environment and integrated 3000+ lines into the CME codebase"

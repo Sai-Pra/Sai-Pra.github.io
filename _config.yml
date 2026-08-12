@@ -1,0 +1,27 @@
+title: Saipranav Venkatakrishnan
+description: Incoming MS/PhD @ UIUC · Computer Architecture
+url: "https://sai-pra.github.io"
+baseurl: ""
+author: Saipranav Venkatakrishnan
+email: saipranavvk@gmail.com
+github_username: Sai-Pra
+linkedin_username: saipranav-venkatakrishnan
+
+permalink: /blog/:year/:slug/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - "*.tex"
+  - "resume/*.tex"
+  - README.md

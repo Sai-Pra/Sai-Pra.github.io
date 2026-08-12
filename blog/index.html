@@ -1,0 +1,20 @@
+---
+layout: default
+title: Blog
+---
+
+<section class="section" style="margin-top:0; border-top:none; padding-top:2rem;">
+  <h2 class="section-header">blog</h2>
+  {% if site.posts.size == 0 %}
+    <p class="no-posts">no posts yet.</p>
+  {% else %}
+    <ul class="post-list">
+    {% for post in site.posts %}
+      <li class="post-item">
+        <span class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</section>
