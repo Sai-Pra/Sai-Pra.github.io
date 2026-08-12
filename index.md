@@ -41,7 +41,7 @@ layout: default
   <h2 class="section-header">experience</h2>
   <ul class="exp-list">
   {% for exp in site.data.experience %}
-    <li class="exp-item">
+    <li class="exp-item{% if exp.collapsed %} exp-collapsed{% endif %}">
       <div class="exp-meta">
         <span class="exp-role">{{ exp.role }}</span>
         <span class="exp-date">{{ exp.dates }}</span>
@@ -57,6 +57,7 @@ layout: default
     </li>
   {% endfor %}
   </ul>
+  <button class="exp-toggle" id="exp-toggle">[show more]</button>
 </section>
 
 <section id="organizations" class="section">

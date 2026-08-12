@@ -19,6 +19,19 @@
     });
   }
 
+  // Experience expand/collapse toggle
+  var expToggle = document.getElementById('exp-toggle');
+  if (expToggle) {
+    expToggle.addEventListener('click', function () {
+      var collapsed = document.querySelectorAll('.exp-collapsed');
+      var isExpanded = collapsed.length > 0 && collapsed[0].style.display === 'block';
+      collapsed.forEach(function (el) {
+        el.style.display = isExpanded ? '' : 'block';
+      });
+      expToggle.textContent = isExpanded ? '[show more]' : '[show less]';
+    });
+  }
+
   // Visitor count from GoatCounter public counter API
   var countEl = document.getElementById('gc-count');
   if (countEl) {

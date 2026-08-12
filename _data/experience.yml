@@ -25,6 +25,7 @@
     - "Mentored students on RTL debugging across pipeline and cache projects using Verdi and Verilator; orchestrated competition profiling 30+ RISC-V processors on Power, Performance, and Area (PPA) metrics"
 
 - role: "Graphics Engineering Intern"
+  collapsed: true
   company: Aechelon Technology
   location: Roeland Park, KS
   dates: "May 2025 – Aug 2025"
@@ -33,6 +34,7 @@
     - "Implemented 5 GPU kernels and custom fragment shaders to transform output media into various color spaces (YUV, sRGB) for compatibility with heterogeneous display systems"
 
 - role: "Software Development Intern"
+  collapsed: true
   company: CME Group
   location: Chicago, IL
   dates: "May 2024 – Nov 2024"
@@ -41,6 +43,7 @@
     - "Won first place in an internal CME Hackathon by developing a low-latency trading algorithm, earning $1000"
 
 - role: "Software Development Intern"
+  collapsed: true
   company: CME Group
   location: Champaign, IL
   dates: "Mar 2023 – Aug 2023"
