@@ -23,7 +23,7 @@ layout: default
       (May 2026, GPA 3.85), where I also did undergraduate research in Huang's group (PlatformX).
     </p>
     <p>
-      My interests lie broadly in computer architecture, with a gorwing interest in hardware-software codesign
+      My interests lie broadly in computer architecture, with a growing interest in hardware-software codesign
       and memory systems. I have worked in RTL/ASIC design (NVIDIA NVLink), GPU kernel
       optimization, and architectural simulation for AI accelerators.
     </p>
