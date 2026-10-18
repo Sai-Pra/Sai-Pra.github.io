@@ -7,7 +7,7 @@ layout: default
     <h1>saipranav venkatakrishnan</h1>
     <div class="tagline">incoming ms/phd @ uiuc</div>
     <div class="hero-divider">─────────────────────────────────</div>
-    <div class="interests">computer architecture&nbsp;·&nbsp;hardware-software codesign&nbsp;·&nbsp;memory systems</div>
+    <div class="interests">computer architecture&nbsp;·&nbsp;hardware-software co-design&nbsp;·&nbsp;ASIC-ification</div>
   </div>
   <div class="hero-photo">
     <img src="/assets/images/profile.jpg" alt="Saipranav Venkatakrishnan" />
@@ -18,14 +18,14 @@ layout: default
   <h2 class="section-header">about</h2>
   <div class="about-text">
     <p>
-      Incoming MS/PhD student (first-year master's) at the University of Illinois Urbana-Champaign,
-      advised by Professor Jian Huang. I completed my B.S. in Computer Engineering at UIUC
-      (May 2026, GPA 3.85), where I also did undergraduate research in Huang's group (PlatformX).
+      Incoming MS student (first-year master's) at the University of Illinois Urbana-Champaign. 
+      I completed my B.S. in Computer Engineering at UIUC
+      (May 2026, GPA 3.85), I did undergraduate research in Professor Jian Huang's group (PlatformX).
     </p>
     <p>
-      My interests lie broadly in computer architecture, with a growing interest in hardware-software codesign
-      and memory systems. I have worked in RTL/ASIC design (NVIDIA NVLink), GPU kernel
-      optimization, and architectural simulation for AI accelerators.
+      My interests lie broadly in computer architecture, with more specifics to be discovered. 
+      I have done work in RTL/ASIC design (NVIDIA NVLink), GPU/specialized-accelerator kernel
+      optimizations, and architectural simulation for AI accelerators.
     </p>
     <div class="about-links">
       <a href="mailto:saipranavvk@gmail.com">email</a>
