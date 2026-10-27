@@ -30,9 +30,10 @@ layout: default
     <div class="about-links">
       <a href="mailto:saipranavvk@gmail.com">email</a>
       <a href="https://linkedin.com/in/saipranav-venkatakrishnan" target="_blank" rel="noopener">linkedin</a>
-      <a href="https://github.com/Saipranavvk" target="_blank" rel="noopener">school github (primary)</a>
-      <a href="https://github.com/Sai-Pra" target="_blank" rel="noopener">personal github (secondary)</a>
-      <a href="/resume/Saipranav_Venkatakrishnan_Resume.pdf" target="_blank">resume</a>
+      <a href="https://github.com/Saipranavvk" target="_blank" rel="noopener">github (primary)</a>
+      <a href="https://github.com/Sai-Pra" target="_blank" rel="noopener">github (secondary)</a>
+      <a href="/resume/Saipranav_Venkatakrishnan_Resume_Brief.pdf" target="_blank">resume (brief)</a>
+      <a href="/resume/Saipranav_Venkatakrishnan_Resume.pdf" target="_blank">resume (full)</a>
     </div>
   </div>
 </section>
