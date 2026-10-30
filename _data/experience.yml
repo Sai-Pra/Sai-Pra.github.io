@@ -6,6 +6,7 @@
     - "Designed 20+ production Verilog modules for the NVLink Chip-to-Chip interconnect, implementing packet framing/deframing, interconnect fanout reduction, and asynchronous/synchronous transaction handling"
     - "Implemented CDC (Clock Domain Crossing) logic for high-speed chip-to-chip links, applying synchronizer chains and handshake protocols to ensure functional correctness and timing closure across async clock boundaries"
     - "Collaborated with DV and Physical Design teams to verify module integration, validate CDC/RDC constraints, and meet area and timing targets within the full NVLink SoC design flow"
+    - "Participated in an internal NVIDIA hackathon, where I optimized kernels for an internel Nemotron model for the Language Processing Unit (LPU), earning 13th place amongst all the participates"
 
 - role: "Undergraduate AI Hardware Research Assistant"
   company: PlatformX

@@ -6,5 +6,9 @@ _site/
 vendor/
 .bundle/
 node_modules/
+package-lock.json
+assets/calendar-data.json
 *.gem
 Gemfile.lock
+_posts/2026-08-29-what-is-my-direction.md
+research_notes/

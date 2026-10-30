@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  schedule:
+    # Hourly — refresh the anonymized calendar snapshot.
+    - cron: "0 * * * *"
 
 permissions:
   contents: read
@@ -26,6 +29,16 @@ jobs:
         with:
           ruby-version: "3.1"
           bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch + anonymize calendar
+        run: |
+          npm install --no-audit --no-fund
+          npm run fetch-calendar
 
       - name: Build site
         run: bundle exec jekyll build --baseurl ""

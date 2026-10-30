@@ -1,0 +1,296 @@
+---
+layout: default
+title: Calendar
+description: My weekly availability.
+permalink: /calendar/
+---
+
+<section class="section" style="margin-top:0; border-top:none; padding-top:2rem;">
+  <h2 class="section-header">calendar</h2>
+  <p class="cal-blurb">
+    a live view of my week &mdash; auto-synced hourly, anonymized to
+    busy/free only, in <span class="cal-tz">America/Chicago</span>.
+  </p>
+
+  <div class="cal-controls">
+    <button type="button" id="cal-prev" aria-label="previous week">&lsaquo; prev</button>
+    <button type="button" id="cal-today">this week</button>
+    <button type="button" id="cal-next" aria-label="next week">next &rsaquo;</button>
+    <span class="cal-range" id="cal-range"></span>
+  </div>
+
+  <div class="cal-wrap">
+    <div class="cal-grid" id="cal-grid" role="table" aria-label="weekly availability">
+      <p class="cal-status" id="cal-status">loading calendar&hellip;</p>
+    </div>
+  </div>
+
+  <p class="cal-updated" id="cal-updated"></p>
+</section>
+
+<style>
+  .cal-blurb { color: var(--muted); margin-bottom: 1.25rem; }
+  .cal-tz { color: var(--accent); }
+
+  .cal-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .cal-controls button {
+    font-family: var(--font);
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .cal-controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .cal-range { color: var(--fg); font-size: 0.8rem; margin-left: auto; }
+
+  .cal-wrap { overflow-x: auto; }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: 3.2rem repeat(7, minmax(4.2rem, 1fr));
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    min-width: 560px;
+    position: relative;
+  }
+  .cal-status { grid-column: 1 / -1; padding: 2rem 1rem; color: var(--muted); text-align: center; }
+
+  .cal-corner, .cal-dayhead {
+    border-bottom: 1px solid var(--border);
+    padding: 0.4rem 0.3rem;
+    font-size: 0.72rem;
+    text-align: center;
+  }
+  .cal-dayhead { border-left: 1px solid var(--border); color: var(--muted); }
+  .cal-dayhead .cal-dow { display: block; color: var(--fg); }
+  .cal-dayhead.is-today .cal-dow { color: var(--accent); }
+  .cal-dayhead .cal-date { font-size: 0.68rem; }
+
+  .cal-gutter { position: relative; }
+  .cal-gutter .cal-hour {
+    position: absolute; right: 0.35rem; transform: translateY(-50%);
+    font-size: 0.64rem; color: var(--muted);
+  }
+
+  .cal-col { position: relative; border-left: 1px solid var(--border); }
+  .cal-col.is-today { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+  .cal-busy {
+    position: absolute;
+    left: 2px; right: 2px;
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    border-radius: 3px;
+    font-size: 0.62rem;
+    color: var(--fg);
+    padding: 1px 3px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .cal-now {
+    position: absolute; left: 0; right: 0; height: 0;
+    border-top: 1px solid var(--accent);
+    z-index: 3; pointer-events: none;
+  }
+  .cal-now::before {
+    content: ''; position: absolute; left: -3px; top: -3px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  }
+
+  .cal-updated { color: var(--muted); font-size: 0.72rem; margin-top: 0.8rem; }
+
+  @media (max-width: 600px) {
+    .cal-grid { font-size: 0.68rem; }
+  }
+</style>
+
+<script>
+(function () {
+  var DATA_URL = {{ "/assets/calendar-data.json" | relative_url | jsonify }};
+  var TZ = "America/Chicago";
+  var ROW_H = 42;            // px per hour
+  var DAY_MS = 86400000;
+
+  var gridEl = document.getElementById("cal-grid");
+  var statusEl = document.getElementById("cal-status");
+  var rangeEl = document.getElementById("cal-range");
+  var updatedEl = document.getElementById("cal-updated");
+
+  var weekOffset = 0;
+  var model = null; // { events: [{startMs,endMs}], generatedAt }
+
+  // Parts of an instant rendered in the calendar's timezone.
+  function tzParts(date) {
+    var dtf = new Intl.DateTimeFormat("en-US", {
+      timeZone: TZ, hour12: false, weekday: "short",
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit"
+    });
+    var o = {};
+    dtf.formatToParts(date).forEach(function (p) { if (p.type !== "literal") o[p.type] = p.value; });
+    var hour = o.hour === "24" ? 0 : parseInt(o.hour, 10);
+    return {
+      y: parseInt(o.year, 10), m: parseInt(o.month, 10), d: parseInt(o.day, 10),
+      hh: hour, mm: parseInt(o.minute, 10), wd: o.weekday // "Mon".."Sun"
+    };
+  }
+
+  var WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  var DOW_LABELS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+  // Days (as {y,m,d}) for the Monday-based week currently shown.
+  function weekDays() {
+    var p = tzParts(new Date());
+    // Anchor at UTC-noon of today's local date; UTC Y/M/D then equals local date.
+    var anchor = Date.UTC(p.y, p.m - 1, p.d, 12);
+    var mondayDelta = (WD[p.wd] + 6) % 7; // days since Monday
+    var monday = anchor - mondayDelta * DAY_MS + weekOffset * 7 * DAY_MS;
+    var days = [];
+    for (var i = 0; i < 7; i++) {
+      var dt = new Date(monday + i * DAY_MS);
+      days.push({ y: dt.getUTCFullYear(), m: dt.getUTCMonth() + 1, d: dt.getUTCDate() });
+    }
+    return days;
+  }
+
+  function sameDate(a, b) { return a.y === b.y && a.m === b.m && a.d === b.d; }
+
+  function render() {
+    gridEl.innerHTML = "";
+    if (!model) return;
+
+    var days = weekDays();
+    var today = tzParts(new Date());
+
+    // Collect this week's busy blocks, tagged with day index + minute span.
+    var weekBlocks = [];
+    var minHour = 8, maxHour = 18;
+    model.events.forEach(function (ev) {
+      var sp = tzParts(new Date(ev.startMs));
+      var epRaw = tzParts(new Date(ev.endMs));
+      for (var i = 0; i < 7; i++) {
+        if (!sameDate(sp, days[i])) continue;
+        var startMin = sp.hh * 60 + sp.mm;
+        var endMin;
+        if (sameDate(epRaw, days[i])) {
+          endMin = epRaw.hh * 60 + epRaw.mm;
+        } else {
+          endMin = 24 * 60; // ends on a later day — clamp to midnight
+        }
+        if (endMin <= startMin) endMin = startMin + 30;
+        weekBlocks.push({ col: i, startMin: startMin, endMin: endMin });
+        minHour = Math.min(minHour, Math.floor(startMin / 60));
+        maxHour = Math.max(maxHour, Math.ceil(endMin / 60));
+        break;
+      }
+    });
+    minHour = Math.max(0, minHour);
+    maxHour = Math.min(24, maxHour);
+    var bodyH = (maxHour - minHour) * ROW_H;
+
+    // Header row.
+    var corner = document.createElement("div");
+    corner.className = "cal-corner";
+    gridEl.appendChild(corner);
+    days.forEach(function (day, i) {
+      var h = document.createElement("div");
+      h.className = "cal-dayhead";
+      if (sameDate(day, today)) h.classList.add("is-today");
+      h.innerHTML = '<span class="cal-dow">' + DOW_LABELS[i] + '</span>' +
+                    '<span class="cal-date">' + day.m + "/" + day.d + "</span>";
+      gridEl.appendChild(h);
+    });
+
+    // Time gutter.
+    var gutter = document.createElement("div");
+    gutter.className = "cal-gutter";
+    gutter.style.height = bodyH + "px";
+    for (var hr = minHour; hr <= maxHour; hr++) {
+      var lbl = document.createElement("span");
+      lbl.className = "cal-hour";
+      lbl.style.top = (hr - minHour) * ROW_H + "px";
+      lbl.textContent = (hr % 24 < 10 ? "0" : "") + (hr % 24) + ":00";
+      gutter.appendChild(lbl);
+    }
+    gridEl.appendChild(gutter);
+
+    var gridLines = "repeating-linear-gradient(var(--border) 0 1px, transparent 1px " + ROW_H + "px)";
+
+    // Day columns.
+    days.forEach(function (day, i) {
+      var col = document.createElement("div");
+      col.className = "cal-col";
+      if (sameDate(day, today)) col.classList.add("is-today");
+      col.style.height = bodyH + "px";
+      col.style.backgroundImage = gridLines;
+
+      weekBlocks.filter(function (b) { return b.col === i; }).forEach(function (b) {
+        var top = (b.startMin - minHour * 60) / 60 * ROW_H;
+        var hgt = (b.endMin - b.startMin) / 60 * ROW_H;
+        var box = document.createElement("div");
+        box.className = "cal-busy";
+        box.style.top = Math.max(0, top) + "px";
+        box.style.height = Math.max(12, hgt - 2) + "px";
+        box.textContent = "busy";
+        col.appendChild(box);
+      });
+
+      // "now" line in today's column.
+      if (sameDate(day, today)) {
+        var nowMin = today.hh * 60 + today.mm;
+        if (nowMin >= minHour * 60 && nowMin <= maxHour * 60) {
+          var line = document.createElement("div");
+          line.className = "cal-now";
+          line.style.top = (nowMin - minHour * 60) / 60 * ROW_H + "px";
+          col.appendChild(line);
+        }
+      }
+      gridEl.appendChild(col);
+    });
+
+    var first = days[0], last = days[6];
+    rangeEl.textContent = first.m + "/" + first.d + " – " + last.m + "/" + last.d;
+  }
+
+  function relTime(iso) {
+    var diff = Date.now() - new Date(iso).getTime();
+    var mins = Math.round(diff / 60000);
+    if (mins < 1) return "just now";
+    if (mins < 60) return mins + " min ago";
+    var hrs = Math.round(mins / 60);
+    if (hrs < 24) return hrs + (hrs === 1 ? " hour ago" : " hours ago");
+    return Math.round(hrs / 24) + " day(s) ago";
+  }
+
+  document.getElementById("cal-prev").addEventListener("click", function () { weekOffset--; render(); });
+  document.getElementById("cal-next").addEventListener("click", function () { weekOffset++; render(); });
+  document.getElementById("cal-today").addEventListener("click", function () { weekOffset = 0; render(); });
+
+  fetch(DATA_URL, { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      model = {
+        generatedAt: data.generatedAt,
+        events: (data.events || []).map(function (e) {
+          return { startMs: Date.parse(e.start), endMs: Date.parse(e.end) };
+        })
+      };
+      render();
+      if (data.generatedAt) updatedEl.textContent = "last synced " + relTime(data.generatedAt);
+    })
+    .catch(function (err) {
+      statusEl.textContent = "calendar data unavailable right now.";
+      console.error("calendar load failed:", err);
+    });
+})();
+</script>

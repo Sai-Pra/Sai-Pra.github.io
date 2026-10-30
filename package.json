@@ -1,0 +1,12 @@
+{
+  "name": "site-calendar-sync",
+  "private": true,
+  "type": "module",
+  "description": "Build-time fetch + anonymization of a public Google Calendar into busy/free blocks.",
+  "scripts": {
+    "fetch-calendar": "node scripts/fetch-calendar.mjs"
+  },
+  "dependencies": {
+    "node-ical": "^0.20.1"
+  }
+}
