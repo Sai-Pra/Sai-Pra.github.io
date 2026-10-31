@@ -21,10 +21,12 @@ const ICS_URL = `https://calendar.google.com/calendar/ical/${encodeURIComponent(
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, '..', 'assets', 'calendar-data.json');
 
-// Window: one week back (so "previous week" has data) through 4 weeks ahead.
+// Window: one week back (so "previous week" has data) through ~2 months ahead.
+// Recurring events are expanded locally via rrule, so looking further forward is
+// cheap; one-off events are limited only by what the public ICS feed includes.
 const now = new Date();
 const rangeStart = new Date(now.getTime() - 7 * 864e5);
-const rangeEnd = new Date(now.getTime() + 28 * 864e5);
+const rangeEnd = new Date(now.getTime() + 63 * 864e5);
 
 // Timezone offset (ms) for a given instant in an IANA zone. Used to correct the
 // well-known DST drift in rrule expansion (rrule assumes the dtstart offset for
