@@ -72,8 +72,25 @@ async function main() {
     const duration = ev.end.getTime() - ev.start.getTime();
 
     if (!ev.rrule) {
-      if (overlapsWindow(ev.start, ev.end)) {
-        blocks.push({ start: ev.start.toISOString(), end: ev.end.toISOString() });
+      // Google's public ICS feed does not emit RRULE; it pre-expands recurring
+      // events into one VEVENT per instance (each with a RECURRENCE-ID), which
+      // node-ical folds into ev.recurrences. A plain one-off has no recurrences.
+      // Emit the master instance plus every expanded instance, deduped by start
+      // (the master is usually also present in recurrences).
+      const instances = [ev];
+      if (ev.recurrences) {
+        for (const rk of Object.keys(ev.recurrences)) instances.push(ev.recurrences[rk]);
+      }
+      const seen = new Set();
+      for (const inst of instances) {
+        if (!inst || !inst.start || !inst.end) continue;
+        if (inst.transparency === 'TRANSPARENT') continue;
+        const startIso = inst.start.toISOString();
+        if (seen.has(startIso)) continue;
+        seen.add(startIso);
+        if (overlapsWindow(inst.start, inst.end)) {
+          blocks.push({ start: startIso, end: inst.end.toISOString() });
+        }
       }
       continue;
     }

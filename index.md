@@ -8,7 +8,7 @@ wide: true
     <h1>saipranav venkatakrishnan</h1>
     <div class="tagline">incoming ms/phd @ uiuc</div>
     <div class="hero-divider">─────────────────────────────────</div>
-    <div class="interests">computer architecture&nbsp;·&nbsp;hardware-software co-design&nbsp;·&nbsp;ASIC-ification</div>
+    <div class="interests">computer architecture&nbsp;·&nbsp;ASIC-ification&nbsp;·&nbsp;all-things-interesting</div>
     <div class="hero-status"><span class="hero-status-key">currently</span> starting MS/PhD research @ UIUC · writing up thoughts on my <a href="/blog/">blog</a></div>
   </div>
   <div class="hero-photo">
@@ -23,11 +23,12 @@ wide: true
       <p>
         Incoming MS student (first-year master's) at the University of Illinois Urbana-Champaign.
         I completed my B.S. in Computer Engineering at UIUC
-        (May 2026). I did undergraduate research in Professor Jian Huang's group (PlatformX);
-        he was my undergraduate advisor and is my current MS advisor.
+        (May 2026). I did undergraduate research in Professor Jian Huang's group (PlatformX),
+        and currently doing my MS under him.
       </p>
       <p>
-        My interests lie broadly in computer architecture, with more specifics to be discovered.
+        My interests lie broadly in computer architecture, with a growing interest in the
+        "ASIC-ification" of various workloads.
         I have done work in RTL/ASIC design (NVIDIA NVLink), GPU/specialized-accelerator kernel
         optimizations, and architectural simulation for AI accelerators.
       </p>
