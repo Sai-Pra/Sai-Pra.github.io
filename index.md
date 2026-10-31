@@ -18,37 +18,25 @@ wide: true
 
 <section id="about" class="section">
   <h2 class="section-header">about</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>
-        Incoming MS student (first-year master's) at the University of Illinois Urbana-Champaign. 
-        I completed my B.S. in Computer Engineering at UIUC
-        (May 2026, GPA 3.85), I did undergraduate research in Professor Jian Huang's group (PlatformX).
-      </p>
-      <p>
-        My interests lie broadly in computer architecture, with more specifics to be discovered. 
-        I have done work in RTL/ASIC design (NVIDIA NVLink), GPU/specialized-accelerator kernel
-        optimizations, and architectural simulation for AI accelerators.
-      </p>
-      <div class="about-links">
-        <a href="mailto:saipranavvk@gmail.com">email</a>
-        <a href="https://linkedin.com/in/saipranav-venkatakrishnan" target="_blank" rel="noopener">linkedin</a>
-        <a href="https://github.com/Saipranavvk" target="_blank" rel="noopener">github (primary)</a>
-        <a href="https://github.com/Sai-Pra" target="_blank" rel="noopener">github (secondary)</a>
-        <a href="/resume/Saipranav_Venkatakrishnan_Resume_Brief.pdf" target="_blank">resume (brief)</a>
-        <a href="/resume/Saipranav_Venkatakrishnan_Resume.pdf" target="_blank">resume (full)</a>
-      </div>
+  <div class="about-text">
+    <p>
+      Incoming MS student (first-year master's) at the University of Illinois Urbana-Champaign.
+      I completed my B.S. in Computer Engineering at UIUC
+      (May 2026, GPA 3.85), I did undergraduate research in Professor Jian Huang's group (PlatformX).
+    </p>
+    <p>
+      My interests lie broadly in computer architecture, with more specifics to be discovered.
+      I have done work in RTL/ASIC design (NVIDIA NVLink), GPU/specialized-accelerator kernel
+      optimizations, and architectural simulation for AI accelerators.
+    </p>
+    <div class="about-links">
+      <a href="mailto:saipranavvk@gmail.com">email</a>
+      <a href="https://linkedin.com/in/saipranav-venkatakrishnan" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://github.com/Saipranavvk" target="_blank" rel="noopener">github (primary)</a>
+      <a href="https://github.com/Sai-Pra" target="_blank" rel="noopener">github (secondary)</a>
+      <a href="/resume/Saipranav_Venkatakrishnan_Resume_Brief.pdf" target="_blank">resume (brief)</a>
+      <a href="/resume/Saipranav_Venkatakrishnan_Resume.pdf" target="_blank">resume (full)</a>
     </div>
-    <aside class="about-card">
-      <div class="about-card-title">at a glance</div>
-      <dl class="facts">
-        <dt>location</dt><dd>Champaign, IL</dd>
-        <dt>school</dt><dd>UIUC ECE</dd>
-        <dt>focus</dt><dd>computer architecture</dd>
-        <dt>advisor</dt><dd>Jian Huang (PlatformX)</dd>
-        <dt>recently</dt><dd>ASIC design @ NVIDIA</dd>
-      </dl>
-    </aside>
   </div>
 </section>
 
@@ -75,44 +63,60 @@ wide: true
   <button class="exp-toggle" id="exp-toggle">[show more]</button>
 </section>
 
-<div class="home-two">
-  <section id="organizations" class="section">
-    <h2 class="section-header">organizations</h2>
-    <ul class="orgs-list">
-    {% for org in site.data.orgs %}
-      <li class="orgs-item">
-        <span class="orgs-role">{{ org.role }}</span>
-        <span class="orgs-org">{{ org.org }}</span>
-        <span class="orgs-dates">{{ org.dates }}</span>
-        {% if org.note %}
-        <span class="orgs-note">{{ org.note }}</span>
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
-  </section>
-
-  <section id="projects" class="section">
-    <h2 class="section-header">selected projects</h2>
-    <ul class="orgs-list">
-      <li class="orgs-item">
-        <span class="orgs-role">FORTE</span>
-        <span class="orgs-org">fault-tolerant RISC-V tape-out</span>
-        <span class="orgs-dates">65nm</span>
-      </li>
-      <li class="orgs-item">
-        <span class="orgs-role">OoO RV32IM</span>
-        <span class="orgs-org">out-of-order superscalar core</span>
-        <span class="orgs-dates">RTL</span>
-      </li>
-      <li class="orgs-item">
-        <span class="orgs-role">Graphics Engine</span>
-        <span class="orgs-org">Vulkan pipeline from scratch</span>
-        <span class="orgs-dates">C++</span>
-      </li>
-    </ul>
-    <div class="about-links" style="margin-top:1rem;">
-      <a href="/research/">see all projects →</a>
+<section id="projects" class="section">
+  <h2 class="section-header">projects</h2>
+  <div class="proj-grid">
+  {% for proj in site.data.projects %}
+    <div class="proj-card">
+      <div class="proj-head">
+        <span class="proj-name">{{ proj.name }}</span>
+        <span class="proj-date">{{ proj.dates }}</span>
+      </div>
+      <div class="proj-tech">{{ proj.tech }}</div>
+      <ul class="proj-bullets">
+        {% for b in proj.bullets %}
+        <li>{{ b }}</li>
+        {% endfor %}
+      </ul>
     </div>
-  </section>
-</div>
+  {% endfor %}
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <h2 class="section-header">skills</h2>
+  <div class="skills-grid">
+    <div class="skill-row">
+      <span class="skill-label">languages</span>
+      <span class="skill-value">SystemVerilog, Verilog, C, C++, CUDA C++, Python</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">eda & tools</span>
+      <span class="skill-value">Synopsys Design Compiler, VCS, Verdi, Verilator, Yosys, Spyglass, CDC/RDC Analysis, Vivado, Vitis, Git, Docker</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">gpu & ml</span>
+      <span class="skill-value">Nvidia Nsight Compute/Systems, PyTorch, CUDA, Vulkan</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">areas</span>
+      <span class="skill-value">ASIC &amp; RTL Design, Hardware–Software Co-design, Computer Architecture, VLSI Design, Logic Synthesis, Parallel Programming</span>
+    </div>
+  </div>
+</section>
+
+<section id="organizations" class="section">
+  <h2 class="section-header">organizations</h2>
+  <ul class="orgs-list">
+  {% for org in site.data.orgs %}
+    <li class="orgs-item">
+      <span class="orgs-role">{{ org.role }}</span>
+      <span class="orgs-org">{{ org.org }}</span>
+      <span class="orgs-dates">{{ org.dates }}</span>
+      {% if org.note %}
+      <span class="orgs-note">{{ org.note }}</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</section>

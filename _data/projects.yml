@@ -1,0 +1,53 @@
+- name: "FORTE: Fault-Tolerant RISC-V Processor Tape-Out"
+  dates: "Apr 2025 – present"
+  tech: "Silicon Research · 65nm Tape-Out · SystemVerilog, VCS, Design Compiler, Verdi, Spyglass, Yosys"
+  bullets:
+    - "Fault-tolerance RTL on a CORE-V Wally (RV64IMA, Sv39 MMU, PMP) baseline for 65nm tape-out: SECDED ECC across register file / L1 I-D cache / PTW / TLB, a cacheline + CSR scrubbing FSM, and a shadow pipeline for redundant execution-unit fault detection"
+    - "Clock integrity monitor (reference-oscillator comparison, glitch threshold, pipeline flush/reset) and micro-TMR hardening for security-critical CSRs to defend against physical fault-injection"
+    - "Full hardware Root of Trust: boot ROM with SHA-256/RSA-2048 image auth, ring-oscillator TRNG (Zkr), and Keystone TEE co-design; AXI-Lite chip-to-board interface for FPGA bringup"
+
+- name: "RV-32IM Out-of-Order RISC-V Processor"
+  dates: "Jan 2025 – May 2025"
+  tech: "Computer Architecture · SystemVerilog, C++"
+  bullets:
+    - "Pipelined, out-of-order, N-way superscalar RV32IM core with explicit register renaming"
+    - "Split Load/Store Unit for speculative memory ops, branch predictors, and a non-blocking pipelined cache, with functional coverage metrics"
+    - "RTL debug via Verilator/Verdi; synthesis + PPA analysis in Design Compiler across critical-path, area, and dynamic-power testcases"
+
+- name: "Graphics Engine"
+  dates: "May 2024 – Aug 2024"
+  tech: "Graphics · C++, Vulkan"
+  bullets:
+    - "Graphics pipeline from scratch on the Vulkan SDK — 6K+ lines of C++ for low-latency rendering"
+    - "5+ core pipeline stages (input assembly, rasterization, fragment shading, framebuffer presentation)"
+    - "Automated Vulkan pipeline creation managing 5+ shader modules across multiple render passes"
+
+- name: "Spiking Neural Network"
+  dates: "Oct 2024 – Jan 2025"
+  tech: "Neuromorphic · SystemVerilog, FPGA"
+  bullets:
+    - "Deployed a spiking neural network on FPGA, trained on the Berkeley DROID dataset for robotic manipulation"
+    - "Trained Leaky-Integrate-and-Fire weights in PyTorch, quantized, and mapped to fixed-point"
+    - "LIF neuron modules via shift-register counters for membrane dynamics; inter-layer FIFOs to stage async spike traffic"
+
+- name: "Audio Visualizer Theremin"
+  dates: "Oct 2024 – Dec 2024"
+  tech: "HW Synthesis & Verification · SystemVerilog, FPGA"
+  bullets:
+    - "FPGA SoC on Xilinx for real-time audio synthesis + VGA visualization over UART; MicroBlaze soft core with custom audio/VGA modules"
+    - "Modular SystemVerilog testbench framework with automated stimulus, self-checking monitors, and coverage; debugged in Vivado"
+
+- name: "32-bit Operating System"
+  dates: "Jan 2024 – May 2024"
+  tech: "Systems · C, x86 Assembly, QEMU"
+  bullets:
+    - "32-bit OS with a 3-terminal interface for IA-32 in x86 assembly and C"
+    - "2-radix paging + allocator for 4KB/4MB pages, a simple virtual file-system, and 10+ syscall handlers"
+    - "Round-robin scheduler for switching between userspace programs"
+
+- name: "Convolutional Neural Network Optimization"
+  dates: "Jan 2024 – May 2024"
+  tech: "Parallel Algorithms & Profiling · CUDA, C++"
+  bullets:
+    - "Scalable CNN forward-pass layer in CUDA, profiled with Nsight Systems/Compute"
+    - "Optimized convolutions via streams, shared/constant memory, matrix unrolling, tensor cores, and custom half2 types"

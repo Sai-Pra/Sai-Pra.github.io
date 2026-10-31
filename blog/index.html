@@ -28,26 +28,22 @@ wide: true
     <ul class="post-list" id="post-list">
     {% for post in site.posts %}
       <li class="post-item" data-tags="{{ post.tags | join: ' ' }}">
-        <div class="post-item-head">
-          <span class="post-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            {% if post.wip %}<span class="post-badge post-badge-sm">wip</span>{% endif %}
-          </span>
-          <span class="post-date">
-            {{ post.date | date: "%Y-%m-%d" }}
-            <span class="post-meta-sep">·</span>
-            {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min
-          </span>
+        <div class="post-side">
+          <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <span class="post-read">{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+          {% if post.tags.size > 0 %}
+          <div class="post-tags">
+            {% for t in post.tags %}<span class="tag tag-static">{{ t }}</span>{% endfor %}
+          </div>
+          {% endif %}
         </div>
-        {% assign blurb = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 200 %}
-        {% if blurb != "" %}
-        <p class="post-blurb">{{ blurb }}</p>
-        {% endif %}
-        {% if post.tags.size > 0 %}
-        <div class="post-tags">
-          {% for t in post.tags %}<span class="tag tag-static">{{ t }}</span>{% endfor %}
+        <div class="post-body">
+          <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.wip %} <span class="post-badge post-badge-sm">wip</span>{% endif %}
+          {% assign blurb = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 220 %}
+          {% if blurb != "" %}
+          <p class="post-blurb">{{ blurb }}</p>
+          {% endif %}
         </div>
-        {% endif %}
       </li>
     {% endfor %}
     </ul>
