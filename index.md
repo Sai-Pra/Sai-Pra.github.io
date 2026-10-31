@@ -23,7 +23,7 @@ wide: true
       <p>
         Incoming MS student (first-year master's) at the University of Illinois Urbana-Champaign.
         I completed my B.S. in Computer Engineering at UIUC
-        (May 2026, GPA 3.85), I did undergraduate research in Professor Jian Huang's group (PlatformX).
+        (May 2026), I did undergraduate research in Professor Jian Huang's group (PlatformX).
       </p>
       <p>
         My interests lie broadly in computer architecture, with more specifics to be discovered.

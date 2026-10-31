@@ -2,6 +2,7 @@
 layout: post
 title: "An Attempt to Understand Google's 'Frozen' v1 and v2 Architecture"
 date: 2026-10-19
+published: false
 description: "A source-driven dig into Google's 'Frozen' chip — collecting the academic and primary sources on its architecture and piecing together what the v1/v2 designs actually do."
 wip: true
 wip_note: "Research scaffold / source dump, not a finished post — it collects every source I could find on Google's \"Frozen\" chip so I can rewrite this in the style of my Taalas HC1 post."
