@@ -1065,9 +1065,61 @@ a.tag:hover {
 /* ─── Home readable-width caps ────────────────────────────────────────── */
 
 .container-wide .hero,
-.container-wide .exp-list,
-.container-wide .about-text {
+.container-wide .exp-list {
   max-width: 820px;
+}
+
+/* ─── About grid (text + at-a-glance card) ────────────────────────────── */
+
+.about-grid {
+  display: block;
+}
+
+.about-card {
+  margin-top: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.1rem 1.2rem;
+  align-self: start;
+}
+
+.about-card-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem 1rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.facts dt {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.facts dd {
+  color: var(--fg);
+}
+
+@media (min-width: 820px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-card {
+    margin-top: 0;
+  }
 }
 
 /* ─── Projects grid (home) ────────────────────────────────────────────── */
