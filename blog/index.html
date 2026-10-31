@@ -1,18 +1,53 @@
 ---
 layout: default
 title: Blog
+wide: true
 ---
 
 <section class="section" style="margin-top:0; border-top:none; padding-top:2rem;">
   <h2 class="section-header">blog</h2>
+
   {% if site.posts.size == 0 %}
     <p class="no-posts">no posts yet.</p>
   {% else %}
-    <ul class="post-list">
+
+    {% assign all_tags = "" | split: "" %}
     {% for post in site.posts %}
-      <li class="post-item">
-        <span class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
-        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% for t in post.tags %}{% unless all_tags contains t %}{% assign all_tags = all_tags | push: t %}{% endunless %}{% endfor %}
+    {% endfor %}
+    {% if all_tags.size > 0 %}
+    <div class="tag-filter" id="tag-filter">
+      <button type="button" class="tag tag-btn active" data-tag="all">all</button>
+      {% assign sorted_tags = all_tags | sort %}
+      {% for t in sorted_tags %}
+      <button type="button" class="tag tag-btn" data-tag="{{ t }}">{{ t }}</button>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <ul class="post-list" id="post-list">
+    {% for post in site.posts %}
+      <li class="post-item" data-tags="{{ post.tags | join: ' ' }}">
+        <div class="post-item-head">
+          <span class="post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.wip %}<span class="post-badge post-badge-sm">wip</span>{% endif %}
+          </span>
+          <span class="post-date">
+            {{ post.date | date: "%Y-%m-%d" }}
+            <span class="post-meta-sep">·</span>
+            {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min
+          </span>
+        </div>
+        {% assign blurb = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 200 %}
+        {% if blurb != "" %}
+        <p class="post-blurb">{{ blurb }}</p>
+        {% endif %}
+        {% if post.tags.size > 0 %}
+        <div class="post-tags">
+          {% for t in post.tags %}<span class="tag tag-static">{{ t }}</span>{% endfor %}
+        </div>
+        {% endif %}
       </li>
     {% endfor %}
     </ul>

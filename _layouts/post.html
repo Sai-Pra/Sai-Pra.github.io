@@ -1,15 +1,76 @@
 ---
 layout: default
 ---
+<div class="read-progress" id="read-progress"></div>
+
 <article class="post">
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">{{ page.date | date: "%B %d, %Y" }}</div>
-  </header>
-  <div class="post-content">
-    {{ content }}
-  </div>
-  <div class="post-back">
-    <a href="{{ '/blog/' | relative_url }}">← all posts</a>
+  <aside class="post-aside">
+    <nav class="post-toc" id="post-toc" aria-label="table of contents">
+      <div class="post-toc-title">on this page</div>
+      <ul class="post-toc-list" id="post-toc-list"></ul>
+    </nav>
+  </aside>
+  <div class="post-main">
+    <header class="post-header">
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        {{ page.date | date: "%B %d, %Y" }}
+        <span class="post-meta-sep">·</span>
+        {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read
+        {% if page.wip %}<span class="post-meta-sep">·</span><span class="post-badge">work in progress</span>{% endif %}
+      </div>
+      {% if page.wip and page.wip_note %}
+      <p class="post-wip-note">{{ page.wip_note }}</p>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}<a href="{{ '/blog/' | relative_url }}#tag-{{ tag }}" class="tag">{{ tag }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </header>
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    {% comment %} related posts: share at least one tag {% endcomment %}
+    {% assign related = "" | split: "" %}
+    {% if page.tags.size > 0 %}
+      {% for other in site.posts %}
+        {% if other.url != page.url %}
+          {% assign shared = false %}
+          {% for t in other.tags %}{% if page.tags contains t %}{% assign shared = true %}{% endif %}{% endfor %}
+          {% if shared and related.size < 3 %}{% assign related = related | push: other %}{% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if related.size > 0 %}
+    <div class="post-related">
+      <div class="post-related-title">related</div>
+      <ul class="post-related-list">
+        {% for r in related %}
+        <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <nav class="post-nav">
+      {% if page.previous %}
+      <a class="post-nav-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="post-nav-label">← previous</span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+      </a>
+      {% else %}<span></span>{% endif %}
+      {% if page.next %}
+      <a class="post-nav-next" href="{{ page.next.url | relative_url }}">
+        <span class="post-nav-label">next →</span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+      </a>
+      {% else %}<span></span>{% endif %}
+    </nav>
+
+    <div class="post-back">
+      <a href="{{ '/blog/' | relative_url }}">← all posts</a>
+    </div>
   </div>
 </article>

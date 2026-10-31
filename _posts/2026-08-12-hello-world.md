@@ -2,6 +2,8 @@
 layout: post
 title: "hello, world"
 date: 2026-08-12
+description: "First post — who I am and what this site is for."
+tags: [meta]
 ---
 
 Hi. I'm Saipranav, an incoming MS/PhD student at UIUC, starting this fall, advised by Professor Jian Huang. I just wrapped up my B.S. in Computer Engineering here, and at the time of writing this post have just finished my summer at NVIDIA working on their NVLink team.

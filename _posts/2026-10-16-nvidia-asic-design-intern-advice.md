@@ -2,6 +2,8 @@
 layout: post
 title: "Advice for NVIDIA ASIC Design Internship Interviews"
 date: 2026-10-16
+description: "What I'd tell anyone prepping for an NVIDIA ASIC/RTL design internship interview — the topics that actually came up and how I'd study for them."
+tags: [career, asic]
 ---
 
 

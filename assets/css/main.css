@@ -679,6 +679,428 @@ a:hover {
   }
 }
 
+/* ─── Wide layout (posts / blog index) ────────────────────────────────── */
+
+.container-wide {
+  max-width: 1080px;
+}
+
+.post-meta-sep {
+  color: var(--border);
+  margin: 0 0.1rem;
+}
+
+/* ─── Post layout w/ TOC sidebar ──────────────────────────────────────── */
+
+.post {
+  display: block;
+}
+
+.post-main {
+  min-width: 0;
+}
+
+.post .post-content {
+  max-width: 720px;
+}
+
+.post-aside {
+  display: none;
+}
+
+.post-toc {
+  position: sticky;
+  top: 2rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.post-toc-title {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-toc-list {
+  list-style: none;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+}
+
+.post-toc-list li {
+  margin-bottom: 0.3rem;
+}
+
+.post-toc-list li.toc-sub {
+  padding-left: 0.9rem;
+}
+
+.post-toc-list a {
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+  border-left: 1px solid transparent;
+  padding-left: 0.7rem;
+  margin-left: -0.7rem;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.post-toc-list a:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.post-toc-list a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* heading anchor affordance */
+.post-content h1,
+.post-content h2 {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .post {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .post-aside {
+    display: block;
+    order: 2;
+  }
+  .post-main {
+    order: 1;
+  }
+}
+
+/* ─── Blog index (richer rows) ────────────────────────────────────────── */
+
+.post-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.post-blurb {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.35rem;
+  max-width: 760px;
+}
+
+/* ─── Reading progress bar ────────────────────────────────────────────── */
+
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  z-index: 50;
+  transition: width 0.05s linear;
+}
+
+/* ─── Tags / chips ────────────────────────────────────────────────────── */
+
+.tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+a.tag:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.75rem;
+}
+
+.tag-btn {
+  background: none;
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.tag-btn.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.post-item.is-hidden {
+  display: none;
+}
+
+/* ─── WIP badge ───────────────────────────────────────────────────────── */
+
+.post-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #d9a441;
+  border: 1px solid #d9a44155;
+  border-radius: 3px;
+  padding: 0.02rem 0.4rem;
+  vertical-align: middle;
+}
+
+.post-badge-sm {
+  font-size: 0.6rem;
+  margin-left: 0.4rem;
+}
+
+.post-wip-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-left: 2px solid #d9a44155;
+  padding-left: 0.8rem;
+  margin-top: 0.9rem;
+  max-width: 680px;
+}
+
+/* ─── Heading anchors ─────────────────────────────────────────────────── */
+
+.heading-anchor {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 0.4rem;
+  opacity: 0;
+  font-weight: 400;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.post-content h1:hover .heading-anchor,
+.post-content h2:hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ─── Code copy button ────────────────────────────────────────────────── */
+
+.post-content pre {
+  position: relative;
+}
+
+.code-copy {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  font-family: var(--font);
+  font-size: 0.68rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.post-content pre:hover .code-copy {
+  opacity: 1;
+}
+
+.code-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ─── Related + prev/next nav ─────────────────────────────────────────── */
+
+.post-related {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-related-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.post-related-list {
+  list-style: none;
+}
+
+.post-related-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.post-related-list a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.post-related-list a:hover {
+  color: var(--accent);
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: var(--fg);
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.post-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.post-nav-next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.post-nav-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.post-nav-title {
+  font-size: 0.8rem;
+}
+
+/* ─── Hero status line ────────────────────────────────────────────────── */
+
+.hero-status {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.hero-status-key {
+  color: var(--accent);
+}
+
+.hero-status-key::before { content: "["; color: var(--border); }
+.hero-status-key::after  { content: "]"; color: var(--border); }
+
+/* ─── About grid (text + facts card) ──────────────────────────────────── */
+
+.about-grid {
+  display: block;
+}
+
+.about-card {
+  display: none;
+}
+
+.about-card-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.facts {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 0.6rem;
+}
+
+.facts dt:first-child {
+  margin-top: 0;
+}
+
+.facts dd {
+  color: var(--fg);
+}
+
+/* ─── Home two-column (orgs + projects) ───────────────────────────────── */
+
+.home-two {
+  display: block;
+}
+
+.container-wide .exp-list,
+.container-wide .about-text {
+  max-width: 760px;
+}
+
+@media (min-width: 820px) {
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-card {
+    display: block;
+  }
+  .home-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .home-two .section {
+    border-top: 1px solid var(--border);
+  }
+}
+
 /* ─── Syntax Highlight (Rouge) ────────────────────────────────────────── */
 
 .highlight {

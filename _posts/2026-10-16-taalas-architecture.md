@@ -2,9 +2,11 @@
 layout: post
 title: "An Attempt to understand Taalas' HC1 Architecture"
 date: 2026-10-16
+description: "Reverse-engineering Taalas' HC1 inference chip from its patents — how hardcoding Llama 3.1 8B into mask ROM plus precomputed multipliers gets them to ~17k tok/sec."
+wip: true
+wip_note: "Still under development — feel free to read the current progress with that in mind."
+tags: [asic, llm, hardware]
 ---
-
-> **THIS POST IS STILL UNDER DEVELOPMENT. FEEL FREE TO LOOK AT THE CURRENT PROGRESS WITH THIS DISCLOSURE IN MIND.**
 
 # Introduction
 

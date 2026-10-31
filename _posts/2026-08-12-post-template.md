@@ -2,6 +2,8 @@
 layout: post
 title: "post template"
 date: 2026-08-12
+description: "A reference template for writing new posts on this stack."
+tags: [meta]
 ---
 
 Given this repo is open source and available on my github, this post serves as a template for other utilizing this same stack.
